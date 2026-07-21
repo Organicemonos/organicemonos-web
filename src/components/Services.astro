@@ -3,71 +3,85 @@
 
 const servicesList = [
   {
-    icon: "📊",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80",
     title: "Revisoría Fiscal y Auditoría",
     description: "Evaluación objetiva, dictamen de estados financieros y auditorías integrales bajo normas internacionales de aseguramiento."
   },
   {
-    icon: "📈",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
     title: "Contabilidad Integral",
     description: "Gestión contable oportuna, elaboración de estados financieros y reportes bajo estándares NIIF."
   },
   {
-    icon: "⚖️",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80",
     title: "Gestión Tributaria Estratégica",
     description: "Planeación fiscal avanzada, preparación de impuestos y optimización legal de la carga tributaria."
   },
   {
-    icon: "👥",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
     title: "Gestión del Talento Humano",
-    description: "Gestión integral de todo el ciclo de vida del colaborador: atracción, selección, contratación, nómina, desarrollo, bienestar y retiro seguro."
+    description: "Gestión integral de todo el ciclo de vida del colaborador: atracción, selección, contratación, nómina, desarrollo y bienestar."
   },
   {
-    icon: "🛡️",
+    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
     title: "Sistema de Gestión SG-SST",
     description: "Diseño, implementación, ejecución, seguimiento continuo y auditoría del Sistema de Gestión de Seguridad y Salud en el Trabajo."
   },
   {
-    icon: "📝",
+    image: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80",
     title: "Declaración de Renta",
     description: "Asesoría especializada en renta para personas naturales y jurídicas con máxima precisión fiscal."
   },
   {
-    icon: "🏛️",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
     title: "Gestiones Ante Entidades Estatales",
-    description: "Representación, atención de requerimientos y trámites especializados ante la UGPP, DIAN, Cámara de Comercio, Secretaría de Hacienda, Ministerios y demás entes de control."
+    description: "Representación, atención de requerimientos y trámites especializados ante la UGPP, DIAN, Cámara de Comercio, Secretaría de Hacienda y entes de control."
   }
 ];
 ---
 
-<section id="servicios" style="padding: 5rem 0 3rem 0;">
-  <!-- CABECERA DE SERVICIOS CON ALTO CONTRASTE -->
-  <div style="text-align: center; margin-bottom: 3.5rem;">
-    <span style="font-size: 0.9rem; font-weight: 800; letter-spacing: 0.12em; color: #60a5fa; text-transform: uppercase; display: inline-block; background: rgba(37, 99, 235, 0.2); padding: 0.4rem 1rem; border-radius: 50px; border: 1px solid rgba(96, 165, 250, 0.3); margin-bottom: 0.8rem;">
-      ESPECIALIDADES INTEGRALES
-    </span>
-    <h2 style="font-size: 2.5rem; font-weight: 800; color: #ffffff; margin-top: 0.5rem; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+<section id="servicios" style="padding: 5rem 0 3rem 0; position: relative; z-index: 10;">
+  <!-- CABECERA CON CONTENEDOR DE ALTO CONTRASTE -->
+  <div style="text-align: center; margin-bottom: 3.5rem; background: rgba(11, 19, 41, 0.85); padding: 2rem 1.5rem; border-radius: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.15); max-width: 850px; margin-left: auto; margin-right: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    
+    <div style="display: inline-block; margin-bottom: 1rem;">
+      <span style="font-size: 0.95rem; font-weight: 900; letter-spacing: 0.15em; color: #ffffff; text-transform: uppercase; background: #1d4ed8; padding: 0.5rem 1.2rem; border-radius: 50px; border: 1px solid #60a5fa; box-shadow: 0 4px 14px rgba(29, 78, 216, 0.5);">
+        ESPECIALIDADES INTEGRALES
+      </span>
+    </div>
+
+    <h2 style="font-size: 2.6rem; font-weight: 900; color: #ffffff; margin-top: 0.5rem; margin-bottom: 1rem; text-shadow: 0 3px 12px rgba(0,0,0,0.8); letter-spacing: -0.02em;">
       Nuestros Servicios Corporativos
     </h2>
-    <p style="color: #f1f5f9; max-width: 680px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6; font-weight: 500; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">
+
+    <p style="color: #ffffff; max-width: 700px; margin: 0 auto; font-size: 1.15rem; line-height: 1.7; font-weight: 600; text-shadow: 0 2px 8px rgba(0,0,0,0.9);">
       Acompañamiento especializado en el desarrollo, cumplimiento normativo y crecimiento sostenible de tu empresa.
     </p>
   </div>
 
-  <!-- GRILLA DE TARJETAS DE SERVICIOS -->
+  <!-- GRILLA DE TARJETAS CON IMÁGENES REALES -->
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem;">
     {servicesList.map((service) => (
       <div 
-        style="background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.18); padding: 2rem; border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.25s ease, border-color 0.25s ease;"
+        style="background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.18); padding: 2rem; border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: transform 0.25s ease, border-color 0.25s ease; display: flex; flex-direction: column;"
         onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(96, 165, 250, 0.6)';"
         onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.18)';"
       >
-        <div style="font-size: 2.5rem; margin-bottom: 1rem; display: inline-block; background: rgba(30, 41, 59, 0.9); padding: 0.6rem 0.8rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.15);">
-          {service.icon}
+        <!-- IMAGEN REAL ENCABEZANDO LA TARJETA -->
+        <div style="width: 100%; height: 180px; overflow: hidden; border-radius: 0.85rem; margin-bottom: 1.25rem; border: 1px solid rgba(255,255,255,0.12);">
+          <img 
+            src={service.image} 
+            alt={service.title} 
+            style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
+            onmouseover="this.style.transform='scale(1.05)';"
+            onmouseout="this.style.transform='scale(1)';"
+          />
         </div>
-        <h3 style="color: #ffffff; font-size: 1.3rem; font-weight: 700; margin-top: 0; margin-bottom: 0.75rem; line-height: 1.3;">
+
+        <h3 style="color: #ffffff; font-size: 1.35rem; font-weight: 800; margin-top: 0; margin-bottom: 0.75rem; line-height: 1.3;">
           {service.title}
         </h3>
+        
         <p style="color: #e2e8f0; font-size: 0.98rem; line-height: 1.65; margin: 0; font-weight: 400;">
           {service.description}
         </p>
