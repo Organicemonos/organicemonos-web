@@ -1,0 +1,162 @@
+---
+// src/layouts/MainLayout.astro
+const {
+  title = "Organicémonos SAS | Revisoría Fiscal, Auditoría y Consultoría",
+  description = "Firma especializada en Revisoría Fiscal, Auditoría, Contabilidad, Gestión Tributaria y Recursos Humanos."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" style="background-color: #0b172a;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Animaciones AOS CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <style is:global>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #0b172a !important; /* Azul marino sobrio base */
+      color: #ffffff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* CONTENEDOR DE FONDO CON LUCES EN MOVIMIENTO */
+    .dynamic-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      background: radial-gradient(circle at 50% 30%, #1e293b 0%, #0b172a 100%);
+      pointer-events: none;
+    }
+
+    /* ORBES DE LUZ VIBRANTES Y DINÁMICOS */
+    .light-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.65; /* Mayor visibilidad */
+    }
+
+    /* Luz 1: Azul Cyan brillante superior */
+    .light-1 {
+      width: 550px;
+      height: 550px;
+      background: #2563eb;
+      top: -100px;
+      left: 10%;
+      animation: moveLight1 12s infinite ease-in-out alternate;
+    }
+
+    /* Luz 2: Azul celeste brillante inferior */
+    .light-2 {
+      width: 650px;
+      height: 650px;
+      background: #0284c7;
+      bottom: -150px;
+      right: 5%;
+      animation: moveLight2 16s infinite ease-in-out alternate;
+    }
+
+    /* Luz 3: Resplandor azul real central */
+    .light-3 {
+      width: 450px;
+      height: 450px;
+      background: #3b82f6;
+      top: 35%;
+      left: 30%;
+      animation: moveLight3 14s infinite ease-in-out alternate;
+    }
+
+    /* ANIMACIONES DE MOVIMIENTO FLUIDO DE LAS LUCES */
+    @keyframes moveLight1 {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      50% {
+        transform: translate(140px, 90px) scale(1.2);
+      }
+      100% {
+        transform: translate(-50px, 40px) scale(0.95);
+      }
+    }
+
+    @keyframes moveLight2 {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      50% {
+        transform: translate(-120px, -100px) scale(1.25);
+      }
+      100% {
+        transform: translate(0px, 0px) scale(1);
+      }
+    }
+
+    @keyframes moveLight3 {
+      0% {
+        transform: translate(0px, 0px) scale(0.9);
+      }
+      50% {
+        transform: translate(-80px, 70px) scale(1.15);
+      }
+      100% {
+        transform: translate(0px, 0px) scale(0.9);
+      }
+    }
+
+    /* MALLA GEOMÉTRICA DE PUNTOS SOBRE LAS LUCES */
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0);
+      background-size: 36px 36px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CAPAS DEL JUEGO DE LUCES DINÁMICAS -->
+  <div class="dynamic-bg">
+    <div class="light-orb light-1"></div>
+    <div class="light-orb light-2"></div>
+    <div class="light-orb light-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <!-- CONTENIDO DE LA PÁGINA -->
+  <slot />
+
+  <!-- Animaciones AOS JS -->
+  <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script is:inline>
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-quad',
+    });
+  </script>
+</body>
+</html>

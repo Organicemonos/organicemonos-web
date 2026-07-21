@@ -1,0 +1,91 @@
+---
+// src/components/Services.astro
+
+const services = [
+  {
+    title: "Revisoría Fiscal y Auditoría",
+    description: "Evaluación objetiva, dictamen de estados financieros y auditorías integrales bajo normas internacionales de aseguramiento.",
+    imageUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80", 
+    animation: "fade-up",
+    delay: "0"
+  },
+  {
+    title: "Contabilidad Integral",
+    description: "Gestión contable oportuna, elaboración de estados financieros y reportes bajo estándares NIIF.",
+    imageUrl: "https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&w=800&q=80",
+    animation: "fade-up",
+    delay: "100"
+  },
+  {
+    title: "Gestión Tributaria Estratégica",
+    description: "Planeación fiscal avanzada, preparación de impuestos y optimización legal de la carga tributaria.",
+    imageUrl: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=800&q=80",
+    animation: "fade-up",
+    delay: "200"
+  },
+  {
+    title: "Recursos Humanos y Gestión del Talento",
+    description: "Gestión integral de todo el ciclo de vida del colaborador: atracción, selección, contratación, nómina, desarrollo, bienestar y retiro seguro.",
+    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+    animation: "fade-up",
+    delay: "300"
+  },
+  {
+    title: "Sistema de Gestión SG-SST",
+    description: "Diseño, implementación, ejecución, seguimiento continuo y auditoría del Sistema de Gestión de Seguridad y Salud en el Trabajo bajo la normatividad vigente.",
+    imageUrl: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80",
+    animation: "fade-up",
+    delay: "400"
+  },
+  {
+    title: "Declaración de Renta",
+    description: "Asesoría especializada en renta para personas naturales y jurídicas con máxima precisión fiscal.",
+    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    animation: "fade-up",
+    delay: "500"
+  }
+];
+---
+
+<section id="servicios" style="padding: 5rem 1rem; position: relative;">
+  
+  <!-- ENCABEZADO CON FONDO OSCURO PARA LECTURA PERFECTA -->
+  <div style="max-width: 800px; margin: 0 auto 4rem auto; text-align: center; background: rgba(11, 19, 36, 0.85); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+    <span data-aos="fade-down" style="background-color: rgba(37, 99, 235, 0.3); color: #60a5fa; font-weight: 700; font-size: 0.85rem; padding: 0.4rem 1.2rem; border-radius: 50px; text-transform: uppercase; letter-spacing: 0.05em; border: 1px solid rgba(96, 165, 250, 0.4);">
+      Especialidades Integrales
+    </span>
+    <h2 data-aos="fade-down" data-aos-delay="100" style="font-size: 2.75rem; font-weight: 800; color: #ffffff; margin-top: 1rem; margin-bottom: 0.75rem; letter-spacing: -0.03em;">
+      Nuestros Servicios Corporativos
+    </h2>
+    <p data-aos="fade-up" data-aos-delay="200" style="color: #cbd5e1; font-size: 1.15rem; max-width: 650px; margin: 0 auto; line-height: 1.6;">
+      Acompañamiento especializado en el desarrollo, cumplimiento normativo y crecimiento de tu empresa.
+    </p>
+  </div>
+
+  <!-- GRILLA DE TARJETAS OSCURECIDAS -->
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem;">
+    {services.map((service) => (
+      <div 
+        data-aos={service.animation} 
+        data-aos-delay={service.delay}
+        style="background: #0d1527; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.12); overflow: hidden; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);"
+        onmouseover="this.style.transform='translateY(-8px)'; this.style.borderColor='#3b82f6'; this.style.boxShadow='0 20px 40px rgba(37, 99, 235, 0.35)';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.12)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.6)';"
+      >
+        <div style="position: relative; overflow: hidden; height: 210px;">
+          <img src={service.imageUrl} alt={service.title} style="width: 100%; height: 100%; object-fit: cover;" />
+          <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, transparent 40%, #0d1527 100%);"></div>
+        </div>
+        
+        <div style="padding: 1.75rem; background: #0d1527;">
+          <h3 style="font-size: 1.35rem; font-weight: 800; margin-top: 0; margin-bottom: 0.85rem; letter-spacing: -0.02em; color: #ffffff;">
+            {service.title}
+          </h3>
+          <p style="color: #cbd5e1; font-size: 0.98rem; line-height: 1.65; margin-bottom: 0; font-weight: 400;">
+            {service.description}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

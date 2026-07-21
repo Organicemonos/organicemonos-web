@@ -1,0 +1,72 @@
+---
+const rawPhone = "3159162853";
+const formattedPhone = "315 916 2853";
+const whatsappNumber = "573159162853"; 
+const whatsappMessage = encodeURIComponent("¡Hola Organicémonos SAS! Me gustaría solicitar información sobre sus servicios empresariales.");
+const emailContact = "info@organicemonos.com";
+---
+
+<section id="contacto" style="padding: 5rem 1.5rem; margin: 4rem 0; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.12); color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+  <div style="max-width: 850px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 0.75rem; color: #ffffff;">¿Listo para organizar y hacer crecer tu empresa?</h2>
+    <p style="color: #cbd5e1; font-size: 1.1rem; margin-bottom: 2.5rem;">
+      Déjanos tus datos o contáctanos directamente a través de nuestros canales oficiales:
+    </p>
+
+    <!-- CANALES DIRECTOS -->
+    <div style="margin-bottom: 3rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href={`tel:${rawPhone}`} style="background-color: #2563eb; color: white; padding: 0.9rem 1.8rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);">
+        📞 Tel: {formattedPhone}
+      </a>
+
+      <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" style="background-color: #25D366; color: white; padding: 0.9rem 1.8rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);">
+        💬 Hablar por WhatsApp
+      </a>
+
+      <a href={`mailto:${emailContact}`} style="background-color: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.9rem 1.8rem; border-radius: 50px; font-weight: 700; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.6rem; backdrop-filter: blur(10px);">
+        ✉️ {emailContact}
+      </a>
+    </div>
+
+    <!-- FORMULARIO TRANSPARENTE -->
+    <form style="display: flex; flex-direction: column; gap: 1.25rem; text-align: left; background: rgba(0, 0, 0, 0.35); padding: 2.5rem; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);" onsubmit="event.preventDefault(); alert('¡Gracias por contactarnos! Te responderemos muy pronto.');">
+      <div>
+        <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: #cbd5e1; font-weight: 600;">Nombre completo / Empresa</label>
+        <input type="text" placeholder="Ej. Ana María Gómez" required style="width: 100%; padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.4); color: white; box-sizing: border-box; font-family: inherit;" />
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+        <div>
+          <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: #cbd5e1; font-weight: 600;">Correo electrónico</label>
+          <input type="email" placeholder="correo@empresa.com" required style="width: 100%; padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.4); color: white; box-sizing: border-box; font-family: inherit;" />
+        </div>
+        <div>
+          <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: #cbd5e1; font-weight: 600;">Teléfono</label>
+          <input type="tel" placeholder="+57 300 000 0000" style="width: 100%; padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.4); color: white; box-sizing: border-box; font-family: inherit;" />
+        </div>
+      </div>
+
+      <div>
+        <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: #cbd5e1; font-weight: 600;">¿En qué servicio estás interesado?</label>
+        <select style="width: 100%; padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(15, 23, 42, 0.95); color: white; box-sizing: border-box; font-family: inherit;">
+          <option value="revisoria">Revisoría Fiscal y Auditoría</option>
+          <option value="contabilidad">Contabilidad Integral</option>
+          <option value="tributaria">Gestión Tributaria Estratégica</option>
+          <option value="rrhh">Gestión de Recursos Humanos</option>
+          <option value="sg-sst">Implementación y Seguimiento SG-SST</option>
+          <option value="renta">Declaración de Renta</option>
+          <option value="otro">Otro / Asesoría general</option>
+        </select>
+      </div>
+
+      <div>
+        <label style="display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: #cbd5e1; font-weight: 600;">Mensaje</label>
+        <textarea rows="4" placeholder="Cuéntanos brevemente qué necesita tu negocio..." style="width: 100%; padding: 0.85rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.4); color: white; box-sizing: border-box; font-family: inherit;"></textarea>
+      </div>
+
+      <button type="submit" style="background-color: #2563eb; color: white; padding: 1rem; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; margin-top: 0.5rem; font-size: 1rem; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);">
+        Enviar Mensaje
+      </button>
+    </form>
+  </div>
+</section>

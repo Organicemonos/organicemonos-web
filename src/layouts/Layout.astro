@@ -1,0 +1,136 @@
+---
+// src/layouts/MainLayout.astro
+const {
+  title = "Organicémonos SAS | Revisoría Fiscal, Auditoría y Consultoría",
+  description = "Firma especializada en Revisoría Fiscal, Auditoría, Contabilidad, Gestión Tributaria y Recursos Humanos."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- Tipografía Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Animaciones AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style is:global>
+    /* EFECTO DE FONDO DINÁMICO CON ORBES FLOTANTES */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      color: #0f172a;
+      background-color: #0b1329; /* Base azul noche profunda */
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Contenedor de las luces dinámicas animadas */
+    .dynamic-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a 0%, #030712 100%);
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.45;
+      animation: floatOrb 20s infinite alternate ease-in-out;
+    }
+
+    /* Orbe 1: Azul Cyan brillante */
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: #2563eb;
+      top: -100px;
+      left: -100px;
+      animation-duration: 18s;
+    }
+
+    /* Orbe 2: Púrpura/Azul Real */
+    .orb-2 {
+      width: 600px;
+      height: 600px;
+      background: #1e3a8a;
+      bottom: -150px;
+      right: -100px;
+      animation-duration: 25s;
+    }
+
+    /* Orbe 3: Destello vibrante central */
+    .orb-3 {
+      width: 400px;
+      height: 400px;
+      background: #3b82f6;
+      top: 40%;
+      left: 30%;
+      animation-duration: 22s;
+    }
+
+    @keyframes floatOrb {
+      0% {
+        transform: translate(0px, 0px) scale(1);
+      }
+      50% {
+        transform: translate(80px, 60px) scale(1.15);
+      }
+      100% {
+        transform: translate(-50px, 100px) scale(0.9);
+      }
+    }
+
+    /* Malla geométrica de líneas sutiles sobre el fondo */
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+      background-size: 32px 32px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- CAPAS DEL FONDO DINÁMICO -->
+  <div class="dynamic-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+
+  <!-- CONTENIDO DE LA PÁGINA -->
+  <slot />
+
+  <script is:inline src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script is:inline>
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out-quad',
+    });
+  </script>
+</body>
+</html>
