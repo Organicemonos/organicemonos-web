@@ -1,125 +1,200 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
-import AboutUs from '../components/AboutUs.astro';
-import Services from '../components/Services.astro';
-import ContactForm from '../components/ContactForm.astro';
-import Footer from '../components/Footer.astro';
-
-const heroServices = [
-  { name: "Revisoría Fiscal & Auditoría", icon: "📊" },
-  { name: "Contabilidad Integral", icon: "📈" },
-  { name: "Gestión Tributaria", icon: "⚖️" },
-  { name: "Recursos Humanos & Talento", icon: "👥" },
-  { name: "Sistema de Gestión SG-SST", icon: "🛡️" },
-  { name: "Declaración de Renta", icon: "📝" }
-];
+// src/pages/index.astro
 ---
 
-<MainLayout title="Organicémonos SAS | Consultoría Empresarial, SG-SST, RRHH y Revisoría Fiscal">
-  
-  <!-- CABECERA DE LA PÁGINA -->
-  <header style="background-color: rgba(11, 19, 41, 0.85); backdrop-filter: blur(16px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255, 255, 255, 0.12); padding: 0.8rem 0;">
-    <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;">
-      
-      <!-- LOGO -->
-      <a href="/" style="display: flex; align-items: center; gap: 1rem; text-decoration: none; justify-self: start;">
-        <div style="background: rgba(255, 255, 255, 0.95); padding: 5px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);">
-          <img 
-            src="/logo-organicemonos.png" 
-            alt="Logo Organicémonos SAS" 
-            style="height: 75px; width: auto; object-fit: contain; display: block; border-radius: 50%;" 
-          />
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organicémonos SAS | Consultoría Empresarial, SG-SST, RRHH y Revisoría Fiscal</title>
+  </head>
+  <body class="bg-slate-900 text-slate-100 font-sans antialiased">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <span class="text-2xl font-black tracking-tight text-white">
+            Organicémonos <span class="text-blue-500">SAS</span>
+          </span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <a href="#nosotros" class="hover:text-blue-400 transition-colors">Nosotros</a>
+          <a href="#servicios" class="hover:text-blue-400 transition-colors">Servicios</a>
+          <a href="#contacto" class="hover:text-blue-400 transition-colors">Contacto</a>
+        </nav>
+        <div class="flex items-center gap-4">
+          <a href="tel:3159162853" class="hidden sm:flex items-center gap-2 text-sm text-slate-300 hover:text-white">
+            📞 315 916 2853
+          </a>
+          <a href="#contacto" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm px-4 py-2 rounded-lg transition-all">
+            Solicitar asesoría
+          </a>
         </div>
-        <span style="font-size: 1.65rem; font-weight: 800; letter-spacing: -0.02em; color: #ffffff; white-space: nowrap; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
-          Organicémonos SAS
-        </span>
-      </a>
-
-      <!-- TELÉFONO CENTRADO -->
-      <div style="justify-self: center;">
-        <a href="tel:3159162853" style="text-decoration: none; color: #60a5fa; font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 0.4rem; background: rgba(37, 99, 235, 0.15); padding: 0.5rem 1.1rem; border-radius: 50px; border: 1px solid rgba(96, 165, 250, 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-          📞 315 916 2853
-        </a>
       </div>
-      
-      <!-- MENÚ DE NAVEGACIÓN -->
-      <nav style="display: flex; gap: 1.5rem; align-items: center; justify-self: end;">
-        <a href="#nosotros" style="text-decoration: none; color: #f1f5f9; font-weight: 600; font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#f1f5f9'">Nosotros</a>
-        <a href="#servicios" style="text-decoration: none; color: #f1f5f9; font-weight: 600; font-size: 0.95rem; transition: color 0.2s;" onmouseover="this.style.color='#60a5fa'" onmouseout="this.style.color='#f1f5f9'">Servicios</a>
-        <a href="#contacto" style="background-color: #1d4ed8; color: white; padding: 0.65rem 1.4rem; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 0.95rem; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">Contacto</a>
-      </nav>
+    </header>
 
-    </div>
-  </header>
+    <!-- HERO SECTION -->
+    <section class="relative py-20 lg:py-32 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
+      <div class="max-w-5xl mx-auto px-4 text-center">
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+          Soluciones corporativas que brindan <span class="text-blue-400">seguridad y resultados</span> a tu empresa
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
+          Acompañamiento contable, legal, tributario y de gestión humana diseñado para proteger tu negocio y potenciar su crecimiento.
+        </p>
+        
+        <!-- BADGES -->
+        <div class="flex flex-wrap justify-center gap-3 mb-10 text-xs sm:text-sm text-slate-300">
+          <span class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full">📊 Revisoría Fiscal & Auditoría</span>
+          <span class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full">📈 Contabilidad Integral</span>
+          <span class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full">⚖️ Gestión Tributaria</span>
+          <span class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full">👥 Gestión del Talento Humano</span>
+          <span class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full">🛡️ SG-SST</span>
+          <span class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full">📝 Declaración de Renta</span>
+          <span class="bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full">🏛️ Gestiones Estatales</span>
+        </div>
 
-  <main style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-    
-    <!-- SECCIÓN HERO -->
-    <section style="padding: 5rem 0 3.5rem 0; text-align: center;">
-      <h1 data-aos="fade-down" style="font-size: 3.5rem; font-weight: 800; color: #ffffff; margin-top: 0; margin-bottom: 1.5rem; letter-spacing: -0.03em; line-height: 1.18; text-shadow: 0 4px 20px rgba(0,0,0,0.6);">
-        Soluciones corporativas que brindan <br/>
-        <span style="background: linear-gradient(135deg, #ffffff 0%, #93c5fd 60%, #60a5fa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));">
-          seguridad y resultados a tu empresa
-        </span>
-      </h1>
-      
-      <!-- CÁPSULAS FLOTANTES -->
-      <div data-aos="fade-up" data-aos-delay="200" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.85rem; max-width: 900px; margin: 0 auto 2.5rem auto;">
-        {heroServices.map((service) => (
-          <div 
-            style="background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); color: #f8fafc; padding: 0.6rem 1.25rem; border-radius: 50px; font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.25s ease;"
-            onmouseover="this.style.background='rgba(37, 99, 235, 0.35)'; this.style.borderColor='#60a5fa'; this.style.transform='translateY(-3px)';"
-            onmouseout="this.style.background='rgba(15, 23, 42, 0.7)'; this.style.borderColor='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)';"
-          >
-            <span>{service.icon}</span>
-            <span>{service.name}</span>
-          </div>
-        ))}
-      </div>
-
-      <!-- BOTONES DE ACCIÓN -->
-      <div data-aos="fade-up" data-aos-delay="400" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a 
-          href="#contacto" 
-          style="background-color: #1d4ed8; color: #ffffff; padding: 1rem 2.2rem; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.05rem; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); transition: transform 0.2s, background-color 0.2s;" 
-          onmouseover="this.style.backgroundColor='#1e40af'; this.style.transform='scale(1.03)';" 
-          onmouseout="this.style.backgroundColor='#1d4ed8'; this.style.transform='scale(1)';"
-        >
-          Solicitar asesoría
-        </a>
-
-        <a 
-          href="#nosotros" 
-          style="border: 1px solid rgba(255, 255, 255, 0.25); color: #ffffff; padding: 1rem 2.2rem; text-decoration: none; border-radius: 50px; font-weight: 600; font-size: 1.05rem; background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); transition: transform 0.2s;" 
-          onmouseover="this.style.transform='scale(1.03)'" 
-          onmouseout="this.style.transform='scale(1)'"
-        >
-          Conocer Organicémonos SAS
-        </a>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#contacto" class="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-blue-500/25">
+            Solicitar asesoría
+          </a>
+          <a href="#nosotros" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold px-8 py-3.5 rounded-xl transition-all">
+            Conocer Organicémonos SAS
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- Componentes -->
-    <AboutUs />
-    <Services />
-    <ContactForm />
-  </main>
+    <!-- SECCIÓN SERVICIOS -->
+    <section id="servicios" class="py-20 bg-slate-900 border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-4">
+        <p class="text-xs font-bold tracking-widest text-blue-400 uppercase text-center mb-2">
+          ESPECIALIDADES INTEGRALES
+        </p>
+        <h2 class="text-3xl sm:text-4xl font-bold text-center text-white mb-4">
+          Nuestros Servicios Corporativos
+        </h2>
+        <p class="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
+          Acompañamiento especializado en el desarrollo, cumplimiento normativo y crecimiento sostenible de tu empresa.
+        </p>
 
-  <Footer />
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Servicio 1 -->
+          <div class="p-6 bg-slate-800/60 rounded-2xl border border-slate-700/60 hover:border-blue-500/50 transition-all">
+            <h3 class="text-xl font-bold text-white mb-3">Revisoría Fiscal y Auditoría</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Evaluación objetiva, dictamen de estados financieros y auditorías integrales bajo normas internacionales de aseguramiento.
+            </p>
+          </div>
 
- <!-- BOTÓN FLOTANTE OFICIAL DE WHATSAPP -->
-  <a 
-    href="https://wa.me/573159162853?text=%C2%A1Hola%20Organic%C3%A9monos%20SAS!%20Deseo%20solicitar%20informaci%C3%B3n%20sobre%20sus%20servicios%20empresariales." 
-    target="_blank" 
-    rel="noopener noreferrer"
-    title="Hablar por WhatsApp"
-    style="position: fixed; bottom: 25px; right: 25px; background-color: #25D366; color: white; width: 62px; height: 62px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45); z-index: 9999; text-decoration: none; border: 2px solid #ffffff; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
-    onmouseover="this.style.transform='scale(1.12)'"
-    onmouseout="this.style.transform='scale(1)'"
-  >
-    <!-- Logo Oficial de WhatsApp Vectorial -->
-    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382C17.11 14.201 15.33 13.325 15 13.205C14.67 13.085 14.43 13.025 14.19 13.385C13.95 13.745 13.26 14.555 13.05 14.795C12.84 15.035 12.63 15.065 12.27 14.885C11.91 14.705 10.748 14.325 9.36 13.088C8.28 12.126 7.55 10.938 7.34 10.578C7.13 10.218 7.318 10.024 7.498 9.845C7.66 9.684 7.86 9.423 8.04 9.213C8.22 9.003 8.28 8.853 8.4 8.613C8.52 8.373 8.46 8.163 8.37 7.983C8.28 7.803 7.56 6.028 7.26 5.308C6.96 4.588 6.66 4.688 6.45 4.688C6.26 4.688 6.03 4.678 5.8 4.678C5.57 4.678 5.2 4.768 4.89 5.108C4.58 5.448 3.7 6.273 3.7 7.953C3.7 9.633 4.92 11.258 5.09 11.498C5.26 11.738 7.49 15.153 10.91 16.628C11.723 16.979 12.35 17.188 12.845 17.345C13.66 17.604 14.405 17.568 14.99 17.481C15.642 17.384 17.002 16.658 17.287 15.853C17.572 15.048 17.572 14.358 17.487 14.208C17.402 14.058 17.172 13.968 16.812 13.788H17.472V14.382ZM12.042 21.84C10.26 21.84 8.52 21.36 7 20.45L2 22L3.58 17.11C2.55 15.52 2 13.66 2 11.76C2 6.25 6.5 1.76 12.03 1.76C14.71 1.76 17.22 2.8 19.11 4.7C21 6.6 22.05 9.11 22.05 11.79C22.04 17.31 17.54 21.84 12.042 21.84Z" fill="white"/>
-    </svg>
-  </a>
-</MainLayout>
+          <!-- Servicio 2 -->
+          <div class="p-6 bg-slate-800/60 rounded-2xl border border-slate-700/60 hover:border-blue-500/50 transition-all">
+            <h3 class="text-xl font-bold text-white mb-3">Contabilidad Integral</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Gestión contable oportuna, elaboración de estados financieros y reportes bajo estándares NIIF.
+            </p>
+          </div>
+
+          <!-- Servicio 3 -->
+          <div class="p-6 bg-slate-800/60 rounded-2xl border border-slate-700/60 hover:border-blue-500/50 transition-all">
+            <h3 class="text-xl font-bold text-white mb-3">Gestión Tributaria Estratégica</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Planeación fiscal avanzada, preparación de impuestos y optimización legal de la carga tributaria.
+            </p>
+          </div>
+
+          <!-- Servicio 4 -->
+          <div class="p-6 bg-slate-800/60 rounded-2xl border border-slate-700/60 hover:border-blue-500/50 transition-all">
+            <h3 class="text-xl font-bold text-white mb-3">Gestión del Talento Humano</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Gestión integral de todo el ciclo de vida del colaborador: atracción, selección, contratación, nómina, desarrollo, bienestar y retiro seguro.
+            </p>
+          </div>
+
+          <!-- Servicio 5 -->
+          <div class="p-6 bg-slate-800/60 rounded-2xl border border-slate-700/60 hover:border-blue-500/50 transition-all">
+            <h3 class="text-xl font-bold text-white mb-3">Sistema de Gestión SG-SST</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Diseño, implementación, ejecución, seguimiento continuo y auditoría del Sistema de Gestión de Seguridad y Salud en el Trabajo bajo la normatividad vigente.
+            </p>
+          </div>
+
+          <!-- Servicio 6 -->
+          <div class="p-6 bg-slate-800/60 rounded-2xl border border-slate-700/60 hover:border-blue-500/50 transition-all">
+            <h3 class="text-xl font-bold text-white mb-3">Declaración de Renta</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Asesoría especializada en renta para personas naturales y jurídicas con máxima precisión fiscal.
+            </p>
+          </div>
+
+          <!-- Servicio 7 -->
+          <div class="p-6 bg-slate-800/60 rounded-2xl border border-slate-700/60 hover:border-blue-500/50 transition-all md:col-span-2 lg:col-span-1">
+            <h3 class="text-xl font-bold text-white mb-3">Gestiones Ante Entidades Estatales</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Representación, atención de requerimientos y trámites especializados ante la UGPP, DIAN, Cámara de Comercio, Secretaría de Hacienda, Ministerios y demás entes de control.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto" class="py-20 bg-slate-800/40 border-t border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold text-white mb-4">¿Listo para organizar y hacer crecer tu empresa?</h2>
+        <p class="text-slate-300 mb-8">
+          Déjanos tus datos o contáctanos directamente a través de nuestros canales oficiales:
+        </p>
+
+        <div class="flex flex-wrap justify-center items-center gap-6 mb-12">
+          <span class="text-slate-200">📞 Tel: <strong>315 916 2853</strong></span>
+          <a href="https://wa.me/573159162853" target="_blank" class="text-emerald-400 hover:underline">💬 Hablar por WhatsApp</a>
+          <a href="mailto:info@organicemonos.com" class="text-blue-400 hover:underline">✉️ info@organicemonos.com</a>
+        </div>
+
+        <form class="space-y-4 max-w-xl mx-auto text-left">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Nombre completo / Empresa</label>
+            <input type="text" placeholder="Ej. Ana María Gómez" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Correo electrónico</label>
+            <input type="email" placeholder="correo@empresa.com" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Teléfono</label>
+            <input type="tel" placeholder="+57 300 000 0000" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">¿En qué servicio estás interesado?</label>
+            <select class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500">
+              <option>Revisoría Fiscal y Auditoría</option>
+              <option>Contabilidad Integral</option>
+              <option>Gestión Tributaria Estratégica</option>
+              <option>Gestión del Talento Humano</option>
+              <option>Implementación y Seguimiento SG-SST</option>
+              <option>Declaración de Renta</option>
+              <option>Gestiones Ante Entidades Estatales (UGPP, DIAN, etc.)</option>
+              <option>Otro / Asesoría general</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Mensaje</label>
+            <textarea rows="4" placeholder="Cuéntanos brevemente qué necesita tu negocio..." class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-lg transition-all">
+            Enviar Mensaje
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-slate-500 text-sm">
+      <p>© 2026 Organicémonos SAS. Todos los derechos reservados.</p>
+    </footer>
+
+  </body>
+</html>
