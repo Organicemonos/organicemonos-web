@@ -3,41 +3,49 @@
 
 const servicesList = [
   {
+    id: "revisoria",
     image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=80",
     title: "Revisoría Fiscal y Auditoría",
     description: "Evaluación objetiva, dictamen de estados financieros y auditorías integrales bajo normas internacionales de aseguramiento."
   },
   {
+    id: "contabilidad",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80",
     title: "Contabilidad Integral",
     description: "Gestión contable oportuna, elaboración de estados financieros y reportes bajo estándares NIIF."
   },
   {
+    id: "tributaria",
     image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80",
     title: "Gestión Tributaria Estratégica",
     description: "Planeación fiscal avanzada, preparación de impuestos y optimización legal de la carga tributaria."
   },
   {
+    id: "rrhh",
     image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80",
     title: "Gestión del Talento Humano",
     description: "Gestión integral de todo el ciclo de vida del colaborador: atracción, selección, contratación, afiliaciones al sistema de seguridad social, nómina, desarrollo, evaluación de desempeño, bienestar y retiro seguro."
   },
   {
+    id: "sgsst",
     image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80",
     title: "SG-SST",
     description: "Diseño, implementación, ejecución, seguimiento continuo y auditoría del Sistema de Gestión de Seguridad y Salud en el Trabajo."
   },
   {
+    id: "renta",
     image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80",
     title: "Declaración de Renta",
     description: "Asesoría especializada en renta para personas naturales y jurídicas con máxima precisión fiscal."
   },
   {
+    id: "estatales",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
     title: "Gestiones ante entidades estatales",
     description: "Representación, atención de requerimientos y trámites especializados ante la UGPP, DIAN, Cámara de Comercio, Secretaría de Hacienda y entes de control."
   },
   {
+    id: "capacitaciones",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
     title: "Capacitaciones Empresariales",
     description: "Fortalecemos el talento de su organización mediante programas de formación prácticos y especializados en materia Contable, Tributaria, Recursos Humanos, SG-SST, Comercio Exterior y actualización normativa a la medida de su empresa."
@@ -83,7 +91,8 @@ const servicesList = [
   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.8rem;">
     {servicesList.map((service) => (
       <div 
-        style="background: rgba(15, 23, 42, 0.40); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.25); padding: 2rem; border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; display: flex; flex-direction: column;"
+        id={service.id}
+        style="background: rgba(15, 23, 42, 0.40); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.25); padding: 2rem; border-radius: 1.25rem; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease; display: flex; flex-direction: column; scroll-margin-top: 100px;"
         onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='rgba(96, 165, 250, 0.9)'; this.style.background='rgba(15, 23, 42, 0.55)';"
         onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255, 255, 255, 0.25)'; this.style.background='rgba(15, 23, 42, 0.40)';"
       >
